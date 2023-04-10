@@ -30,3 +30,43 @@ $(document).ready(function () { //defer executing click method/function by using
 //Getting/Setting information about elements: .html/text/attr/width/height/position/val(*for form elements)
 
 //https://learn.jquery.com/using-jquery-core/working-with-selections/
+
+//TODO:Random Class Notes:
+
+var myName = "Gary";
+var student = {
+  name: "Ralph",
+  age: 25
+}
+
+const student = {
+  name: "Henry",
+  age: 40
+}
+student.name = "Burt";
+student.age = 34;
+
+//CANNOT reassign the ENTIRE variable if declared as a const variable; use const unless prompted to use let by js; this is because const is stored in a different (more performance-efficient way) than let//
+
+function doSomething(x,y){ //simple function taking in two parameters, and then returning those two parameters//
+  return x + y
+}
+
+//Truncated Arrow Function: we are allowed to use the arrow function without the curly braces if we are only trying to do ONE THING; it implies an IMMEDIATE RETURN;
+const doSomething = () => "hello"; //if no parameters are declared then we need the empty parentheses//
+const doSomething = x => x**2; //if one parameter is declared then we can omit the parentheses//
+const doSomething = (x,y) => x + y; 
+
+const obj = {
+  name: "whatever",
+  age: 55,
+  increaseAge: function(){ //this is referring to the age key inside the curly braces//
+    this.age = this.age + 10;
+  }
+}
+
+const obj2 = {
+  name: "whatever",
+  age: 55,
+  increaseAge: () => this.age = age + 10 //this will break code; the arrow functions are scoped to look for where the parent object was created (obj2), which in this case is in the global namespace; in other words...NO ARROW FUNCTIONS AS METHODS INSIDE OBJECTS//
+  }

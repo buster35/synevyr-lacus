@@ -1,7 +1,7 @@
 //General Purpose localStorage Methods//
 
 //1)
-var firstNameField = document.querySelector("#first-name");
+var firstNameField = document.querySelector("#first-name"); //or jQuery= var firstNameField = $("#first-name")
 var lastNameField = document.querySelector("#last-name");
 var emailField = document.querySelector("#email");
 var userForm = document.querySelector("form"); 
