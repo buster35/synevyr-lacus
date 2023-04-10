@@ -70,3 +70,21 @@ const obj2 = {
   age: 55,
   increaseAge: () => this.age = age + 10 //this will break code; the arrow functions are scoped to look for where the parent object was created (obj2), which in this case is in the global namespace; in other words...NO ARROW FUNCTIONS AS METHODS INSIDE OBJECTS//
   }
+
+  //async/await: here we go
+
+  function makeApiCall(){
+    fetch(_____________, opts)
+    .then(function (response) {
+      return response.json()
+    })
+    .then(function (data) {
+    console.log(data)
+  });
+  }
+
+  async function makeApiCall2(){
+    const response = await fetch("blah, blah, blah"); //each line with await does not begin until the previous lines within the function container finish their logic//
+    const data = await response.json()
+    console.log(data)
+  }//once we wrap our heads around how async/await works, then it's much more appealing to use than .then blocks//
