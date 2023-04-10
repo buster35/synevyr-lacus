@@ -1,8 +1,11 @@
 //learn.jquery.com//
 
 //jQuery methods and properties accessed in JS via $($=jQuery)//
+
 //non-caching; if needed later, make a variable: ex. var divs = $("div");
-//MOST BASIC CONCEPT for jQuery: select some elements and do something with them -> $("id, class, attribute, compound css selector, comma-separated lists, pseudo's")
+
+TODO://MOST BASIC CONCEPT for jQuery: select some elements and do something with them -> $("id, class, attribute, compound css selector, comma-separated lists, pseudo's")
+
 //A callback is a function that is passed as an argument to another function and is executed after its parent function has completed. Callbacks are special because they patiently wait to execute until their parent finishes. To use callbacks, it is important to know how to pass them into their parent function.//
 
 $(document).ready(function () { //defer executing click method/function by using an anonymous function as a wrapper; the anonymous function calls any subsequent functions//
