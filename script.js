@@ -24,5 +24,6 @@ $(document).ready(function () { //defer executing click method/function by using
 //.attr(key, value), .attr({name:value, etc}): setter
 //.attr("__"): getter; returns ___ for first element preceding the .attr statement//
 //$("").has/not/filter/first/eq... ; refining and filtering selections//
+//Getting/Setting information about elements: .html/text/attr/width/height/position/val(*for form elements)
 
 //https://learn.jquery.com/using-jquery-core/working-with-selections/
