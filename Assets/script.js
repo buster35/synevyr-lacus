@@ -48,10 +48,7 @@ let hour = [
   },
 ];
 
-let taskField = $("textarea");
-
-
-
+// let taskField = $("textarea");
 
 $("#currentDay").text(today.format("dddd, MMMM DD, YYYY"));
 
@@ -69,17 +66,19 @@ $.each(hour, function (key, value) {
     }
 })
 
-// TODO:How might the id be
-// useful when saving the description in local storage?
-
 $("button").on("click", function (e) {
   e.preventDefault();
   let getId = $(this).closest("div div").attr("id")
-  console.log(getId)
-  let getTask = $(this).closest("textarea")
-  console.log(getTask)
-  
-  
+  console.log(getId) //working
+  let getTask = $(this).prev("textarea").val()
+  console.log(getTask) //working
+
+  let userStorage = {
+    getId: getId,
+    getTask: getTask
+  }
+  let stringedUserStorage = JSON.stringify(userStorage);
+  localStorage.setItem("user", stringedUserStorage)
 });
 
 
