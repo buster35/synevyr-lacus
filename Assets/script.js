@@ -4,11 +4,7 @@ let present = $(".present");
 let future = $(".future");
 
 let today = dayjs();
-
-$("#currentDay").text(today.format("dddd, MMMM DD, YYYY"));
-
-// let currentHour = today.format("H"); //24-hour # value//
-let currentHour = 11;
+let currentHour = today.format("H"); //24-hour # value//
 
 let rows = $(".row");
 
@@ -52,39 +48,39 @@ let hour = [
   },
 ];
 
+let taskField = $("textarea");
+
+
+
+
+$("#currentDay").text(today.format("dddd, MMMM DD, YYYY"));
+
 $.each(hour, function (key, value) {
     let hourInt = value.hour
     let rowId = value.id
     if (hourInt < currentHour) { //working!
-      console.log(rowId);
       $(rowId).attr("class", "row time-block past")
     }
     else if (hourInt === currentHour) {
-      console.log(rowId);
       $(rowId).attr("class", "row time-block present")
     }
     else if (hourInt > currentHour) {
-      console.log(rowId);
       $(rowId).attr("class", "row time-block future")
     }
 })
 
-// TODO: This code should
-// use the id in the containing time-block as a key to save the user input in
-// local storage. HINT: What does `this` reference in the click listener
-// function? How can DOM traversal be used to get the "hour-x" id of the
-// time-block containing the button that was clicked? How might the id be
+// TODO:How might the id be
 // useful when saving the description in local storage?
 
-
-//jQuery to get all div ids in one array
-//click bubbles to parent element div w/ id
-$(".saveBtn").on("click", function (e) {
+$("button").on("click", function (e) {
   e.preventDefault();
-  console.log(e.target.id);
-  //$.map maybe?
+  let getId = $(this).closest("div div").attr("id")
+  console.log(getId)
+  let getTask = $(this).closest("textarea")
+  console.log(getTask)
+  
+  
 });
-
 
 
 
