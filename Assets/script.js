@@ -1,12 +1,12 @@
-$(document).ready(function () {});
-let past = $(".past"); //caching elements using jquery to access later//
-let present = $(".present");
-let future = $(".future");
+$(document).ready(function () {
+
+// let past = $(".past"); //caching elements using jquery to access later//
+// let present = $(".present");
+// let future = $(".future");
+// let rows = $(".row");
 
 let today = dayjs();
 let currentHour = today.format("H"); //24-hour # value//
-
-let rows = $(".row");
 
 let hour = [
   {
@@ -48,14 +48,12 @@ let hour = [
   },
 ];
 
-// let taskField = $("textarea");
-
 $("#currentDay").text(today.format("dddd, MMMM DD, YYYY"));
 
 $.each(hour, function (key, value) {
     let hourInt = value.hour
     let rowId = value.id
-    if (hourInt < currentHour) { //working!
+    if (hourInt < currentHour) {
       $(rowId).attr("class", "row time-block past")
     }
     else if (hourInt === currentHour) {
@@ -79,9 +77,11 @@ $("button").on("click", function (e) {
   }
   let stringedUserStorage = JSON.stringify(userStorage);
   localStorage.setItem("user", stringedUserStorage)
+
+  let test = JSON.parse(stringedUserStorage)
+  console.log(test) //working
 });
-
-
+});
 
 // TODO: Add code to get any user input that was saved in localStorage and set
 // the values of the corresponding textarea elements. HINT: How can the id
