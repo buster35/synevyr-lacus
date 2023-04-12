@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  //function to check and if present, set rows to contain anything stored//
+  let textArea = $(".description");
   let savedData = localStorage.getItem("user");
   if (savedData) {
     //if true, there is saved userdata in localStorage and may be accessed on page load//
@@ -9,9 +9,8 @@ $(document).ready(function () {
   function populateField () {
     let userTasks = JSON.parse(savedData)
     console.log(userTasks)//now i want to tell js to find the id associated with the row that matches that which is in localStorage and 
-    if ($("div id") === userTasks.getId.val()) {
-      
-    }
+    // let userTask = userTasks.getTask
+    // console.log(userTask)
   }
 
   let today = dayjs();
@@ -80,6 +79,7 @@ $(document).ready(function () {
       getId: getId,
       getTask: getTask,
     };
+
     let stringedUserStorage = JSON.stringify(userStorage);
     localStorage.setItem("user", stringedUserStorage); 
   });
