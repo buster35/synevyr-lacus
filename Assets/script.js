@@ -1,16 +1,11 @@
 $(document).ready(function () {
-  let textArea = $(".description");
-  let savedData = localStorage.getItem("user");
-  if (savedData) {
-    //if true, there is saved userdata in localStorage and may be accessed on page load//
-    populateField ()
-  }
-
-  function populateField () {
-    let userTasks = JSON.parse(savedData)
-    console.log(userTasks)//now i want to tell js to find the id associated with the row that matches that which is in localStorage and 
-    // let userTask = userTasks.getTask
-    // console.log(userTask)
+  populateField();
+  function populateField () { //this function was worked through by myself and an awesome tutor//
+    Object.keys(localStorage).some(function(currentProperty) { //localStorage is a giant object, so we can iterate through it//
+      if (~currentProperty.indexOf("hour")) { //the function is looking for any Key with "hour" as a part of the name; will return a boolean//
+        $(`#${currentProperty} .description`).val(JSON.parse(localStorage.getItem(currentProperty)).task) //if true, this line of code will run to parse the value held in that key FROM localStorage TO the correct textarea within the UI//
+      }
+    });
   }
 
   let today = dayjs();
@@ -76,15 +71,11 @@ $(document).ready(function () {
     let getTask = $(this).prev("textarea").val();
 
     let userStorage = {
-      getId: getId,
-      getTask: getTask,
+      hourId: getId,
+      task: getTask,
     };
 
     let stringedUserStorage = JSON.stringify(userStorage);
-    localStorage.setItem("user", stringedUserStorage); 
+    localStorage.setItem(getId, stringedUserStorage); 
   });
 });
-
-// TODO: Add code to get any user input that was saved in localStorage and set
-// the values of the corresponding textarea elements. HINT: How can the id
-// attribute of each time-block be used to do this?
